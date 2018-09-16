@@ -1030,8 +1030,10 @@ out:
 	fs->fsid.major = (unsigned int) stat_fs.f_fsid.val[0];
 	fs->fsid.minor = (unsigned int) stat_fs.f_fsid.val[1];
 #else
-	fs->fsid.major = (unsigned int) stat_fs.f_fsid.__val[0];
-	fs->fsid.minor = (unsigned int) stat_fs.f_fsid.__val[1];
+	//fs->fsid.major = (unsigned int) stat_fs.f_fsid.__val[0];
+	//fs->fsid.minor = (unsigned int) stat_fs.f_fsid.__val[1];
+	fs->fsid.major = fs->dev.major;
+	fs->fsid.minor = fs->dev.minor;
 #endif
 	if ((fs->fsid.major == 0) && (fs->fsid.minor == 0)) {
 		fs->fsid.major = fs->dev.major;
