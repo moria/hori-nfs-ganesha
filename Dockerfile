@@ -26,4 +26,7 @@ ADD etc/ganesha /etc/ganesha
 RUN mkdir /gsh-export
 RUN ls -l /usr/bin/ganesha.nfsd
 EXPOSE 111 111/udp 662 2049 38465-38467
+
+ADD VERSION VERSION
+
 CMD ["/bin/sh", "./start_ganesha.sh"]
